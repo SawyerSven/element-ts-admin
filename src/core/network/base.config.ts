@@ -1,8 +1,9 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import URL_MAP from './network.address';
 
 /* 引入elementUI的全局Loading组件 */
 import { Loading, Message as message } from 'element-ui';
+import { ElMessageComponent } from 'element-ui/types/message';
 
 let loadingInstance: any;
 const loadingOptions = {
@@ -13,9 +14,9 @@ const loadingOptions = {
 };
 
 interface SelfAxiosInstance extends AxiosInstance {
-  _BASE_URL: string;
-  _API_URL: string;
-  _UPLOAD_URL: string;
+  _BASE_URL?: string;
+  _API_URL?: string;
+  _UPLOAD_URL?: string;
 }
 
 /* axios实例 */
@@ -32,20 +33,19 @@ const axiosInstance: SelfAxiosInstance = axios.create({
 
 /*为axios实例添加请求拦截器*/
 axiosInstance.interceptors.request.use(
-  function(req) {
-    let token = window.sessionStorage.getItem('token') || undefined;
+  (req: any) => {
+    const token = window.sessionStorage.getItem('token') || undefined;
     if (token) {
       req.headers.token = token;
     }
-    //这里写拦截操作
+    // 这里写拦截操作
     /*if (req.url.includes('maps.google.cn/maps/api/geocode')) {
           delete req.headers.language
         }*/
-    if (!req.headers.noloading)
-      loadingInstance = Loading.service(loadingOptions);
+    loadingInstance = Loading.service(loadingOptions);
     return req;
   },
-  function(error) {
+  (error: Error) => {
     loadingInstance.close();
     return Promise.reject(error);
   }
@@ -53,24 +53,23 @@ axiosInstance.interceptors.request.use(
 
 /*为axios实例添加响应拦截器*/
 axiosInstance.interceptors.response.use(
-  function(response) {
-    setTimeout(() => {
-      loadingInstance.close();
-      if (response.data.code !== 200) {
-        (<any>message) & (<any>message(response.data.message));
-        if (
-          response.data.code === 110005 ||
-          response.data.code === 110006 ||
-          response.data.code === 1003
-        ) {
-          sessionStorage.removeItem('token');
-        }
-        return Promise.reject(response.data);
+  (response: any): any => {
+    loadingInstance.close();
+    if (response.data.code !== 200) {
+      // (message as any) &&
+      message(response.data.message);
+      if (
+        response.data.code === 110005 ||
+        response.data.code === 110006 ||
+        response.data.code === 1003
+      ) {
+        sessionStorage.removeItem('token');
       }
-    }, 300);
+      return Promise.reject(response.data);
+    }
     return response.data;
   },
-  function(error) {
+  (error: Error) => {
     loadingInstance.close();
     return Promise.reject(error);
   }

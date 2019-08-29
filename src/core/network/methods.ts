@@ -1,35 +1,38 @@
 import axios from './base.config';
+import { AxiosRequestConfig } from 'axios';
 
-export function get(url, data = null) {
-  return instantiateRequest('get', url, data);
+export function get(url: string, data: any = null, headers: any = null) {
+  return instantiateRequest('get', url, data, headers);
 }
 
-export function post(url, data = null, headers = null) {
-  console.log(url);
+export function post(url: string, data: any = null, headers: any = null) {
   return instantiateRequest('post', url, data, headers);
 }
-export function upload(url, data, headers) {
-  console.log(headers);
+export function upload(url: string, data: any, headers: any) {
   return new Promise((resolve, reject) => {
     axios
       .post(url, data, headers)
-      .then(res => {
+      .then((res: object) => {
         resolve(res);
       })
-      .catch(err => {
+      .catch((err: Error) => {
         reject(err);
       });
   });
 }
 
-function instantiateRequest(method, url, data, headers) {
+function instantiateRequest(
+  method: string,
+  url: string,
+  data: any,
+  headers: any
+) {
   return new Promise((resolve, reject) => {
-    axios({ method, url, data, headers })
-      .then(res => {
+    axios({ method, url, data, headers } as AxiosRequestConfig)
+      .then((res: object) => {
         resolve(res);
       })
-      .catch(err => {
-        console.log(err);
+      .catch((err: Error) => {
         reject(err);
       });
   });
