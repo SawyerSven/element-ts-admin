@@ -5,7 +5,9 @@
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({})
+@Component({
+  name: 'Project'
+})
 export default class Home extends Vue {}
 </script>
 

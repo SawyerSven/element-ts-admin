@@ -1,12 +1,13 @@
 <template>
-  <div class="table-filter">
-  </div>
+  <div class="table-filter"></div>
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({})
+@Component({
+  name: 'TableFilter'
+})
 export default class Home extends Vue {}
 </script>
 

@@ -1,6 +1,6 @@
 import Wrap from '@/views/Wrap/Wrap.vue';
 
-const subRoutes = [
+export const subRoutes = [
   {
     path: '/diary',
     name: 'diary',
@@ -9,6 +9,26 @@ const subRoutes = [
     },
     components: {
       main: () => import('@/views/Diary/Diary.vue')
+    }
+  },
+  {
+    path: '/project',
+    name: 'project',
+    meta: {
+      title: '项目详情'
+    },
+    components: {
+      main: () => import('@/views/Project/Project.vue')
+    }
+  },
+  {
+    path: '/record',
+    name: 'record',
+    meta: {
+      title: '施工日志'
+    },
+    components: {
+      main: () => import('@/views/Record/Record.vue')
     }
   }
 ];

@@ -21,7 +21,9 @@
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({})
+@Component({
+  name: 'SelectProject'
+})
 export default class Home extends Vue {
   private currentProject = {
     name: '中交第二公路工程局有限公司',

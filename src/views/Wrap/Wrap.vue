@@ -6,13 +6,12 @@
       </div>
       <div class="login-control">
         <span>娇娇</span>
-        <TableFilter></TableFilter>
         <el-button type="text">退出</el-button>
       </div>
     </el-header>
     <el-container>
       <el-aside class="wrap-slide-menu" width="200px" :style="{height:slideHeight}">
-        <SlideMenu></SlideMenu>
+        <SideMenu></SideMenu>
       </el-aside>
       <el-main class="wrap-main">
         <router-view name="main"></router-view>
@@ -25,12 +24,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { getViewport } from '@/utils/index';
 import ProjectSelect from './components/TheProjectSelect.vue';
-import SlideMenu from './components/SlideMenu.vue';
+import SideMenu from './components/SideMenu.vue';
 /* setting Component & prop */
 @Component({
   components: {
     ProjectSelect,
-    SlideMenu
+    SideMenu
   }
 })
 export default class Home extends Vue {

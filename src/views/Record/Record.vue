@@ -1,13 +1,11 @@
 <template>
-  <div class="diary">diary</div>
+  <div class="record">上工记录</div>
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  name: 'Diary'
-})
+@Component({})
 export default class Home extends Vue {}
 </script>
 
