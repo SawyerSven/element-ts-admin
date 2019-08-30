@@ -5,4 +5,6 @@ import routes from './route.config';
 
 Vue.use(Router);
 
-export default new Router(routes);
+export default new Router({
+  routes
+});

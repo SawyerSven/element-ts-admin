@@ -7,10 +7,15 @@ import store from './store';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+
 Vue.config.productionTip = false;
 
 /* 注入ElementUI，并初始化size和zIndex */
 Vue.use(Element, { size: 'small', zIndex: 100 });
+
+/* 注入全局组件 */
+
+import '@/components/global/index';
 
 // 引入axios
 import axios from '@/core/network/index';

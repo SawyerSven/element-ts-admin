@@ -6,12 +6,17 @@
       </div>
       <div class="login-control">
         <span>娇娇</span>
+        <TableFilter></TableFilter>
         <el-button type="text">退出</el-button>
       </div>
     </el-header>
     <el-container>
-      <el-aside class="wrap-slide-menu" width="200px" :style="{height:slideHeight}">1</el-aside>
-      <el-main class="wrap-main">123</el-main>
+      <el-aside class="wrap-slide-menu" width="200px" :style="{height:slideHeight}">
+        <SlideMenu></SlideMenu>
+      </el-aside>
+      <el-main class="wrap-main">
+        <router-view name="main"></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -20,10 +25,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { getViewport } from '@/utils/index';
 import ProjectSelect from './components/TheProjectSelect.vue';
+import SlideMenu from './components/SlideMenu.vue';
 /* setting Component & prop */
 @Component({
   components: {
-    ProjectSelect
+    ProjectSelect,
+    SlideMenu
   }
 })
 export default class Home extends Vue {
@@ -50,7 +57,7 @@ export default class Home extends Vue {
     min-width: 1334px;
     #flex(space-between, center);
     // background: @main-color;
-    background:#fff;
+    background: #fff;
     border-bottom: 1px solid #ccc;
     .login-control {
       width: 200px;
@@ -61,7 +68,6 @@ export default class Home extends Vue {
     }
   }
   &-slide-menu {
-    padding: 10px;
     border-right: 1px solid #ccc;
   }
   &-main {
