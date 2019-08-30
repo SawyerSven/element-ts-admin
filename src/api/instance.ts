@@ -1,4 +1,4 @@
-import { get, post } from './methods';
+import { get, post } from '../core/network/methods';
 import * as API from './api';
 
 type MethodInstance = (data: any, header: any) => Promise<any>;

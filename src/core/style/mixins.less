@@ -5,7 +5,7 @@
   align-items: @cross-axis;
 }
 
-#center {
-  #flex(row, nowrap, center, center);
+#center(@direction:row) {
+  #flex(center, center, @direction, nowrap);
 }
 

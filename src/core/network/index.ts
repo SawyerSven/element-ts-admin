@@ -1,4 +1,4 @@
-import * as API from './instance';
+import * as API from '../../api/instance';
 import axiosInstance from './base.config';
 
 export default {

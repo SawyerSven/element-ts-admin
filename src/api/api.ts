@@ -5,7 +5,7 @@
  * @LastEditTime: 2019-07-28 11:00:40
  */
 
-import axios from './base.config';
+import axios from '../core/network/base.config';
 // 机构注册
 export const SET_REGISTER_ORG = `${axios._BASE_URL}/org/register`;
 // 获取字典

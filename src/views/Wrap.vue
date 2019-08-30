@@ -1,42 +1,72 @@
 <template>
   <el-container class="wrap">
-    <el-header height="80px" class="wrap-header">
-      <div class="org-select"></div>
+    <el-header :height="headerHeight + 'px'" class="wrap-header">
+      <div class="org-select">
+        <ProjectSelect></ProjectSelect>
+      </div>
       <div class="login-control">
         <span>娇娇</span>
-        <el-button style="color:#fff;" type="text">退出</el-button>
+        <el-button type="text">退出</el-button>
       </div>
     </el-header>
-    <el-aside class="test">1</el-aside>
-    <el-main>3</el-main>
+    <el-container>
+      <el-aside class="wrap-slide-menu" width="200px" :style="{height:slideHeight}">1</el-aside>
+      <el-main class="wrap-main">123</el-main>
+    </el-container>
   </el-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-
-@Component({})
+import { getViewport } from '@/utils/index';
+import ProjectSelect from './components/TheProjectSelect.vue';
+/* setting Component & prop */
+@Component({
+  components: {
+    ProjectSelect
+  }
+})
 export default class Home extends Vue {
-  public mounted() {
-    this.$http.get_dict({ getAll: true }).then((res: any) => {
-      console.log(res);
-    });
+  /* initial data */
+  private headerHeight = 80;
+
+  private mounted() {
+    this.getDict();
+  }
+  /* Ajax请求的例子，get_dict方法定义在src/core/network/instance */
+  private async getDict() {
+    const res = await this.$http.get_dict({ getAll: true });
+  }
+
+  get slideHeight() {
+    return getViewport().height - this.headerHeight + 'px';
   }
 }
 </script>
 <style lang="less">
 .wrap {
-  &-header {
+  .wrap-header {
+    padding-left: 200px;
     min-width: 1334px;
     #flex(space-between, center);
-    background: @main-color;
+    // background: @main-color;
+    background:#fff;
+    border-bottom: 1px solid #ccc;
     .login-control {
       width: 200px;
-      color: #fff;
+      color: #555;
       span {
         margin-right: 40px;
       }
     }
+  }
+  &-slide-menu {
+    padding: 10px;
+    border-right: 1px solid #ccc;
+  }
+  &-main {
+    .ele-minwidth(200px);
+    .ele-minheight(80px);
   }
 }
 </style>
