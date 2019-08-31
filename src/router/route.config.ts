@@ -2,16 +2,6 @@ import Wrap from '@/views/Wrap/Wrap.vue';
 
 export const subRoutes = [
   {
-    path: '/diary',
-    name: 'diary',
-    meta: {
-      title: '施工日志'
-    },
-    components: {
-      main: () => import('@/views/Diary/Diary.vue')
-    }
-  },
-  {
     path: '/project',
     name: 'project',
     meta: {
@@ -22,10 +12,20 @@ export const subRoutes = [
     }
   },
   {
+    path: '/diary',
+    name: 'diary',
+    meta: {
+      title: '施工日志'
+    },
+    components: {
+      main: () => import('@/views/Diary/Diary.vue')
+    }
+  },
+  {
     path: '/record',
     name: 'record',
     meta: {
-      title: '施工日志'
+      title: '上工记录'
     },
     components: {
       main: () => import('@/views/Record/Record.vue')
