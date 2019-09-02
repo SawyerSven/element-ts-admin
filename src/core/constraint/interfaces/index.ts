@@ -7,6 +7,15 @@ export interface FilterObject {
   clearable?: boolean;
   disabled?: boolean;
   multiple?: boolean;
+  dateConfig?: DateConfig;
 }
 
-
+export interface DateConfig {
+  type: string;
+  format?: string;
+  'unlink-panels'?: boolean;
+  'picker-options'?: object;
+  'range-separator'?: string;
+  'start-placeholder'?: string;
+  'end-placeholder'?: string;
+}

@@ -30,10 +30,23 @@
               :value="isObject(option)?option.value:index"
             ></el-option>
           </el-select>
+          <el-date-picker
+            v-model="formData[item.prop]"
+            v-if="item.type.toLowerCase() === 'date'"
+            :placeholder="item.placeholder"
+            :disabled="item.disabled"
+            :type="item.dateConfig && item.dateConfig.type  || 'date'"
+            :format="item.dateConfig && item.dateConfig.format || 'yyyy-MM-dd'"
+            :unlink-panels="item.dateConfig && item.dateConfig['unlink-panels'] || false"
+            :picker-options="item.dateConfig && item.dateConfig['picker-options'] || []"
+            :range-separator="item.dateConfig && item.dateConfig['range-separator'] || '-'"
+            :start-placeholder="item.dateConfig && item.dateConfig['start-placeholder'] || '开始时间'"
+            :end-placeholder="item.dateConfig && item.dateConfig['end-placeholder'] || '结束时间'"
+          ></el-date-picker>
         </el-form-item>
         <el-form-item class="filter-button-group">
-          <el-button style="margin-right:10px;" @click="clearFilter">清空</el-button>
           <el-button type="primary" @click="setFilter">查询</el-button>
+          <el-button style="margin-right:10px;" @click="clearFilter">清空</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -72,6 +85,7 @@ export default class Home extends Vue {
 
   public clearFilter() {
     this.$set(this, 'formData', {});
+    this.setFilter();
   }
   public setFilter() {
     this.$emit('search');

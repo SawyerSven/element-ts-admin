@@ -14,6 +14,10 @@ const components = [
   {
     name: 'TableFilter',
     component: () => import('@/components/global/TableFilter.vue')
+  },
+  {
+    name: 'TableMain',
+    component: () => import('@/components/global/Table/TableMain.vue')
   }
 ];
 
