@@ -1,0 +1,11 @@
+#flex(@main-axis:flex-start,@cross-axis:flex-start,@direction:row,@wrap:nowrap) {
+  display: flex;
+  flex-flow: @direction @wrap;
+  justify-content: @main-axis;
+  align-items: @cross-axis;
+}
+
+#center(@direction:row) {
+  #flex(center, center, @direction, nowrap);
+}
+
