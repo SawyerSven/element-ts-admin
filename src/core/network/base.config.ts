@@ -21,7 +21,7 @@ interface SelfAxiosInstance extends AxiosInstance {
 
 /* axios实例 */
 const axiosInstance: SelfAxiosInstance = axios.create({
-  baseURL: URL_MAP.API_URL,
+  baseURL: URL_MAP.BASE_URL,
   timeout: 20000
 });
 

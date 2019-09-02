@@ -46,7 +46,7 @@
         </el-form-item>
         <el-form-item class="filter-button-group">
           <el-button type="primary" @click="setFilter">查询</el-button>
-          <el-button style="margin-right:10px;" @click="clearFilter">清空</el-button>
+          <el-button style="margin-right:10px;" @click="clearFilter">重置</el-button>
         </el-form-item>
       </el-form>
     </el-card>
