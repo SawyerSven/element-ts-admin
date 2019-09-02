@@ -36,9 +36,6 @@ export default class Home extends Vue {
   /* initial data */
   private headerHeight = 80;
 
-  private mounted() {
-    this.getDict();
-  }
   /* Ajax请求的例子，get_dict方法定义在src/core/network/instance */
   private async getDict() {
     const res = await this.$http.get_dict({ getAll: true });

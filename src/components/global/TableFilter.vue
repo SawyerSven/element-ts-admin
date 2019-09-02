@@ -97,6 +97,7 @@ export default class Home extends Vue {
 .table-filter-form {
   #flex(flex-start, center, row, wrap);
   .table-filter-form-item {
+    font-size: 12px;
     flex-shrink: 0;
   }
 }

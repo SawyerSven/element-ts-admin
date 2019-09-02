@@ -1,7 +1,7 @@
 <template>
   <div class="diary">
     <TableFilter @search="search" :filter-list="searchList" v-model="searchResult"></TableFilter>
-    <TableMain style="margin-top:20px"></TableMain>
+    <TableMain :data="tableData" :tableObject="tableObject" style="margin-top:20px"></TableMain>
   </div>
 </template>
 
@@ -70,6 +70,115 @@ export default class Home extends Vue {
     }
   ];
   private searchResult = {};
+
+  private tableObject = {
+    selection: {
+      open: true,
+      width: '100',
+      handle: (e: any) => {
+        console.log(e);
+      }
+    },
+    tableDataInfo: [
+      {
+        name: '日期',
+        prop: 'date'
+      },
+      {
+        name: '姓名',
+        prop: 'name'
+      },
+      {
+        name: '地址',
+        prop: 'address'
+      }
+    ],
+    tableControl: {
+      title: '操作',
+      type: 'buttons',
+      commands: [
+        {
+          name: '查看施工日志',
+          hasAuth: () => true,
+          isShow: () => true,
+          handle: (row: any, index: number) => {
+            console.log(row, index);
+          }
+        },
+        {
+          name: '编辑',
+          hasAuth: () => true,
+          isShow: () => true,
+          handle: (row: any, index: number) => {
+            console.log(row, index);
+          }
+        },
+        {
+          name: '删除',
+          hasAuth: () => true,
+          isShow: () => true,
+          handle: (row: any, index: number) => {
+            console.log(row, index);
+          }
+        },
+        {
+          name: '发布',
+          hasAuth: () => true,
+          isShow: () => true,
+          handle: (row: any, index: number) => {
+            console.log(row, index);
+          }
+        },
+        {
+          name: '确认做完',
+          hasAuth: () => true,
+          isShow: () => true,
+          handle: (row: any, index: number) => {
+            console.log(row, index);
+          }
+        },
+        {
+          name: '做工安排',
+          hasAuth: () => true,
+          isShow: () => true,
+          handle: (row: any, index: number) => {
+            console.log(row, index);
+          }
+        },
+        {
+          name: '提交',
+          hasAuth: () => true,
+          isShow: () => true,
+          handle: (row: any, index: number) => {
+            console.log(row, index);
+          }
+        }
+      ]
+    }
+  };
+
+  private tableData = [
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1518 弄'
+    },
+    {
+      date: '2016-05-04',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1517 弄'
+    },
+    {
+      date: '2016-05-01',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1519 弄'
+    },
+    {
+      date: '2016-05-03',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1516 弄'
+    }
+  ];
 
   private search() {
     // console.log(this.searchResult);

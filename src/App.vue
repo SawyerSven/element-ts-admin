@@ -5,7 +5,15 @@
 </template>
 
 <style>
-div,ul,li,p,h1,h2,h3,h4,h5{
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
   box-sizing: border-box;
 }
 #app {
@@ -27,5 +35,21 @@ div,ul,li,p,h1,h2,h3,h4,h5{
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+body .el-table th.gutter {
+  display: table-cell !important;
+}
+
+body .el-table colgroup.gutter {
+  display: table-cell !important;
+}
+
+body .el-table .warning-row {
+  background: oldlace;
+}
+
+body .el-table .success-row {
+  background: #f0f9eb;
 }
 </style>
