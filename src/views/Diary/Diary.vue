@@ -1,7 +1,11 @@
 <template>
   <div class="diary">
     <TableFilter @search="search" :filter-list="searchList" v-model="searchResult"></TableFilter>
-    <TableMain :data="tableData" :tableObject="tableObject" style="margin-top:20px"></TableMain>
+    <TableMain :data="tableData" :tableObject="tableObject" style="margin-top:20px">
+      <template #control>
+        <TableControl></TableControl>
+      </template>
+    </TableMain>
   </div>
 </template>
 
@@ -72,6 +76,7 @@ export default class Home extends Vue {
   private searchResult = {};
 
   private tableObject = {
+    isShowpagination: true,
     selection: {
       open: true,
       width: '100',

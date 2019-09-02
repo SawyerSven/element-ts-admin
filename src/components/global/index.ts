@@ -18,6 +18,10 @@ const components = [
   {
     name: 'TableMain',
     component: () => import('@/components/global/Table/TableMain.vue')
+  },
+  {
+    name: 'TableControl',
+    component: () => import('@/components/global/Table/TableControl.vue')
   }
 ];
 

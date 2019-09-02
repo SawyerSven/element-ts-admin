@@ -2,7 +2,7 @@
   <div class="table">
     <div class="table-content">
       <el-card class="table-content-header">
-        <TableControl></TableControl>
+        <slot name="control"></slot>
       </el-card>
       <el-card class="table-content-body">
         <el-table
@@ -43,6 +43,17 @@
             </template>
           </el-table-column>
         </el-table>
+        <el-card v-if="tableObject.isShowpagination || (tableObject.isShowpagination !== undefined && false)" shadow="never" class="table-pagination">
+          <el-pagination
+            style="width:500px"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page.sync="currentPage1"
+            :page-size="100"
+            layout="total, prev, pager, next"
+            :total="1000"
+          ></el-pagination>
+        </el-card>
       </el-card>
     </div>
   </div>
@@ -50,12 +61,9 @@
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
-import TableControl from './TableControl.vue';
 
 @Component({
-  components: {
-    TableControl
-  },
+  components: {},
   props: {
     tableObject: {
       type: Object,
@@ -75,9 +83,6 @@ import TableControl from './TableControl.vue';
   name: 'TableMain'
 })
 export default class Home extends Vue {
-  public handleClick(row: any) {
-    console.log(row);
-  }
   public handleSelect(e: any) {
     if (
       this.$props.tableObject.selection &&
@@ -104,5 +109,9 @@ export default class Home extends Vue {
       min-height: 300px;
     }
   }
+}
+.table-pagination {
+  margin-top: 10px;
+  #flex(flex-end, center);
 }
 </style>

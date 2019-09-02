@@ -40,8 +40,8 @@ export default class Home extends Vue {
     max-width: 50%;
     height: 100%;
     #center;
-    .table-control-group-btn{
-      margin:0 10px
+    .table-control-group-btn {
+      margin: 0 10px;
     }
   }
 }
