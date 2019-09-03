@@ -84,9 +84,6 @@ import EventBus from '@/components/utils/bus';
       default: () => {
         return [];
       }
-    },
-    toggleAllSelection: {
-      type: Function
     }
   },
   name: 'TableMain'
@@ -99,6 +96,14 @@ export default class Home extends Vue {
     ) {
       this.$props.tableObject.selection.handle(e);
     }
+  }
+  public created() {
+    EventBus.$on('toggle-select-all', () => {
+      (this.$refs['sea-table'] as any).toggleAllSelection();
+    });
+  }
+  public beforeDestroy() {
+    EventBus.$off('toggle-select-all');
   }
   get dataComputed() {
     return this.$props.data;

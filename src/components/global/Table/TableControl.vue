@@ -39,7 +39,7 @@ export default class Home extends Vue {
     return typeof height === 'string' ? height : `${height}px`;
   }
   public toggleSelectAll() {
-    this.$emit('selectAll');
+    EventBus.$emit('toggle-select-all');
   }
 }
 </script>
