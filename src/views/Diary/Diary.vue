@@ -3,7 +3,7 @@
     <TableFilter @search="search" :filter-list="searchList" v-model="searchResult"></TableFilter>
     <TableMain :data="tableData" :tableObject="tableObject" style="margin-top:20px">
       <template #control>
-        <TableControl></TableControl>
+        <TableControl :select-all="true"></TableControl>
       </template>
     </TableMain>
   </div>

@@ -6,6 +6,7 @@
       </el-card>
       <el-card class="table-content-body">
         <el-table
+          ref="sea-table"
           :data="dataComputed"
           border
           @selection-change="handleSelect($event)"
@@ -43,12 +44,16 @@
             </template>
           </el-table-column>
         </el-table>
-        <el-card v-if="tableObject.isShowpagination || (tableObject.isShowpagination !== undefined && false)" shadow="never" class="table-pagination">
+        <el-card
+          v-if="tableObject.isShowpagination || (tableObject.isShowpagination !== undefined && false)"
+          shadow="never"
+          class="table-pagination"
+        >
+          <!--            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          :current-page.sync="currentPage1"-->
           <el-pagination
             style="width:500px"
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page.sync="currentPage1"
             :page-size="100"
             layout="total, prev, pager, next"
             :total="1000"
@@ -61,6 +66,7 @@
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
+import EventBus from '@/components/utils/bus';
 
 @Component({
   components: {},
@@ -78,6 +84,9 @@ import { Component, Vue } from 'vue-property-decorator';
       default: () => {
         return [];
       }
+    },
+    toggleAllSelection: {
+      type: Function
     }
   },
   name: 'TableMain'

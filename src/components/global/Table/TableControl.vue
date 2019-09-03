@@ -3,7 +3,12 @@
     <slot>
       <h3>施工记录</h3>
       <div class="table-control-group">
-        <el-button class="table-control-group-btn" type="text">全选</el-button>
+        <el-button
+          v-if="selectAll"
+          @click="toggleSelectAll"
+          class="table-control-group-btn"
+          type="text"
+        >全选</el-button>
         <el-button class="table-control-group-btn">批量提交</el-button>
         <el-button class="table-control-group-btn" type="primary">新增施工日志</el-button>
       </div>
@@ -13,13 +18,18 @@
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
+import EventBus from '@/components/utils/bus';
 
 @Component({
   name: 'TableFilter',
   props: {
-    height: {
+    'height': {
       type: [String, Number],
       default: 50
+    },
+    'select-all': {
+      type: Boolean,
+      default: false
     }
   }
 })
@@ -27,6 +37,9 @@ export default class Home extends Vue {
   get h() {
     const height = this.$props.height;
     return typeof height === 'string' ? height : `${height}px`;
+  }
+  public toggleSelectAll() {
+    this.$emit('selectAll');
   }
 }
 </script>
