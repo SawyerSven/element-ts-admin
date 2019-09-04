@@ -1,5 +1,5 @@
 import Vue from 'vue';
 
-let EventBus = new Vue();
+let EventBus: Vue = new Vue();
 
 export default EventBus;

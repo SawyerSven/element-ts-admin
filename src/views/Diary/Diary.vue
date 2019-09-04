@@ -15,7 +15,7 @@ import { FilterObject } from '@/core/constraint';
 @Component({
   name: 'Diary'
 })
-export default class Home extends Vue {
+export default class Diary extends Vue {
   private searchList: FilterObject[] = [
     {
       label: '时间',

@@ -88,7 +88,7 @@ import EventBus from '@/components/utils/bus';
   },
   name: 'TableMain'
 })
-export default class Home extends Vue {
+export default class TableMain extends Vue {
   public handleSelect(e: any) {
     if (
       this.$props.tableObject.selection &&

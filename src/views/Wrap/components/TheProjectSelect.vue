@@ -24,7 +24,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   name: 'SelectProject'
 })
-export default class Home extends Vue {
+export default class TheProjectSelect extends Vue {
   private currentProject = {
     name: '中交第二公路工程局有限公司',
     id: 1

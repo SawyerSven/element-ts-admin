@@ -19,7 +19,7 @@ import { Route } from 'vue-router';
 @Component({
   name: 'SideMenu'
 })
-export default class Home extends Vue {
+export default class SideMenu extends Vue {
   public routes = subRoutes.map((item) => {
     return {
       title: item.meta.title,

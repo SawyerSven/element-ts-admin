@@ -32,7 +32,7 @@ import SideMenu from './components/SideMenu.vue';
     SideMenu
   }
 })
-export default class Home extends Vue {
+export default class Wrap extends Vue {
   /* initial data */
   private headerHeight = 80;
 

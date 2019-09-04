@@ -33,7 +33,7 @@ import EventBus from '@/components/utils/bus';
     }
   }
 })
-export default class Home extends Vue {
+export default class TableControl extends Vue {
   get h() {
     const height = this.$props.height;
     return typeof height === 'string' ? height : `${height}px`;

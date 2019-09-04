@@ -67,7 +67,7 @@ import { isObject } from '../utils';
     }
   }
 })
-export default class Home extends Vue {
+export default class TableFilter extends Vue {
   get formData() {
     return this.form;
   }
