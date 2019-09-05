@@ -77,6 +77,11 @@ export default class Diary extends Vue {
 
   private tableObject = {
     isShowpagination: true,
+    paginationOptions: {
+      sizeChange: (e: any) => {
+        // console.log(e);
+      }
+    },
     selection: {
       open: true,
       width: '100',

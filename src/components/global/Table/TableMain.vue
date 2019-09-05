@@ -49,14 +49,15 @@
           shadow="never"
           class="table-pagination"
         >
-          <!--            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
+          <!--@current-change="handleCurrentChange"
           :current-page.sync="currentPage1"-->
           <el-pagination
             style="width:500px"
             :page-size="100"
             layout="total, prev, pager, next"
             :total="1000"
+            @current-change="tableObject.paginationOptions.sizeChange"
+            :current-page.sync="currentPage"
           ></el-pagination>
         </el-card>
       </el-card>
@@ -89,6 +90,7 @@ import EventBus from '@/components/utils/bus';
   name: 'TableMain'
 })
 export default class TableMain extends Vue {
+  public currentPage = 1;
   public handleSelect(e: any) {
     if (
       this.$props.tableObject.selection &&
