@@ -22,6 +22,10 @@ const components = [
   {
     name: 'TableControl',
     component: () => import('@/components/global/Table/TableControl.vue')
+  },
+  {
+    name: 'SeaForm',
+    component: () => import('@/components/global/Form/Form.vue')
   }
 ];
 

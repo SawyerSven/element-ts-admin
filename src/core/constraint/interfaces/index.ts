@@ -1,7 +1,13 @@
+import { Form } from 'element-ui';
+
+type width = string | number;
+
 export interface FilterObject {
   label: string;
   type: string;
   prop: string;
+  'label-width'?: width;
+  width?: width;
   placeholder?: string;
   options?: any[];
   clearable?: boolean;

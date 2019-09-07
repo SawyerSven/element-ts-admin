@@ -5,7 +5,8 @@ export const subRoutes = [
     path: '/project',
     name: 'project',
     meta: {
-      title: '项目详情'
+      title: '项目详情',
+      icon: 'el-icon-s-order'
     },
     components: {
       main: () => import('@/views/Project/Project.vue')
@@ -15,7 +16,8 @@ export const subRoutes = [
     path: '/diary',
     name: 'diary',
     meta: {
-      title: '施工日志'
+      title: '施工日志',
+      icon: 'el-icon-notebook-1'
     },
     components: {
       main: () => import('@/views/Diary/Diary.vue')
@@ -25,10 +27,22 @@ export const subRoutes = [
     path: '/record',
     name: 'record',
     meta: {
-      title: '上工记录'
+      title: '上工记录',
+      icon: 'el-icon-notebook-2'
     },
     components: {
       main: () => import('@/views/Record/Record.vue')
+    }
+  },
+  {
+    path: '/sea-form',
+    name: 'SeaForm',
+    meta: {
+      title: '数据表单',
+      icon: 'el-icon-tickets'
+    },
+    components: {
+      main: () => import('@/views/Form/FormPage.vue')
     }
   }
 ];

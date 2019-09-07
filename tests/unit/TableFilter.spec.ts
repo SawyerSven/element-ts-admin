@@ -13,6 +13,11 @@ describe('测试TableFilter组件', () => {
         form: {},
         'filter-list': [
           {
+            label: '姓名',
+            prop: 'name',
+            type: 'input'
+          },
+          {
             label: '时间',
             prop: 'daterange',
             type: 'date',
@@ -70,6 +75,14 @@ describe('测试TableFilter组件', () => {
         ]
       }
     });
-    console.log(instance.vm.$props);
+    it('测试传入的属性生成对应的标签', () => {
+      expect(instance.html()).to.contains('el-date-picker');
+      expect(instance.html()).to.contains('el-select');
+      expect(instance.html()).to.contains('el-input');
+      expect(instance.html()).to.contains('el-button');
+    });
+    it('测试初始化值并测试筛选值的改变', () => {
+      
+    });
   });
 });

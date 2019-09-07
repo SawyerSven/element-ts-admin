@@ -2,9 +2,7 @@
   <div class="slide-menu">
     <el-menu @select="goToTarget" :default-active="$route.name" class="el-menu-vertical-demo">
       <el-menu-item v-for="(item,index) in routes" :key="index" :index="item.name">
-        <i v-if="index === 0" class="el-icon-s-order"></i>
-        <i v-if="index === 1" class="el-icon-notebook-1"></i>
-        <i v-if="index === 2" class="el-icon-notebook-2"></i>
+        <i :class="item.icon"></i>
         <span slot="title">{{item.title}}</span>
       </el-menu-item>
     </el-menu>
@@ -23,7 +21,8 @@ export default class SideMenu extends Vue {
   public routes = subRoutes.map((item) => {
     return {
       title: item.meta.title,
-      name: item.name
+      name: item.name,
+      icon: item.meta.icon
     };
   });
 

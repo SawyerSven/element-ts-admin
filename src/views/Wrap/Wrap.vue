@@ -14,7 +14,9 @@
         <SideMenu></SideMenu>
       </el-aside>
       <el-main class="wrap-main">
-        <router-view name="main"></router-view>
+        <transition name="slide-fade" mode="out-in">
+          <router-view name="main"></router-view>
+        </transition>
       </el-main>
     </el-container>
   </el-container>
