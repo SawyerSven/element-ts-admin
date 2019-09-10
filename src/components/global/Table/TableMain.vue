@@ -53,11 +53,11 @@
           :current-page.sync="currentPage1"-->
           <el-pagination
             style="width:500px"
-            :page-size="100"
+            :page-size="tableObject.paginationOptions.pageSize || 10"
             layout="total, prev, pager, next"
             :total="1000"
-            @current-change="tableObject.paginationOptions.sizeChange"
-            :current-page.sync="currentPage"
+            @current-change="tableObject.paginationOptions.sizeChange || function(){}"
+            :current-page.sync="tableObject.paginationOptions.currentPage || 1"
           ></el-pagination>
         </el-card>
       </el-card>
