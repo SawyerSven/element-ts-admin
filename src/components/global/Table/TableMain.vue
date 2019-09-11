@@ -55,7 +55,7 @@
             style="width:500px"
             :page-size="tableObject.paginationOptions.pageSize || 10"
             layout="total, prev, pager, next"
-            :total="1000"
+            :total="tableObject.paginationOptions.total || 0"
             @current-change="tableObject.paginationOptions.sizeChange || function(){}"
             :current-page.sync="tableObject.paginationOptions.currentPage || 1"
           ></el-pagination>
