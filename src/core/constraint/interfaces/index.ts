@@ -14,6 +14,7 @@ export interface FilterObject {
   disabled?: boolean;
   multiple?: boolean;
   dateConfig?: DateConfig;
+  class?: string;
 }
 
 export interface DateConfig {

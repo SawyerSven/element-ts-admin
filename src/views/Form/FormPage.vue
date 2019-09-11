@@ -5,6 +5,7 @@
       label-suffix="："
       :inline="false"
       form-ref="form"
+      :disabled="formDisabled"
       :data="formData"
       :form-object="formObject"
     ></SeaForm>
@@ -19,6 +20,7 @@ import { FilterObject } from '../../core/constraint';
 export default class FormPage extends Vue {
   public labelSuffix = 'asdasd';
   public formData = {};
+  public formDisabled = false;
   public formObject: FilterObject[] = [
     {
       label: '日期',
@@ -31,6 +33,13 @@ export default class FormPage extends Vue {
       type: 'input',
       prop: 'orgId',
       width: '100%'
+    },
+    {
+      label: '只读数据',
+      type: 'text',
+      prop: 'orgId',
+      width: '测试',
+      class: 'text'
     }
   ];
 }
@@ -38,5 +47,8 @@ export default class FormPage extends Vue {
 <style lang='less'>
 .sea-form {
   padding: 20px;
+}
+.text {
+  font-size: 80px;
 }
 </style>

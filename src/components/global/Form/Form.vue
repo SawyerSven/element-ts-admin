@@ -21,14 +21,14 @@
           v-if="item.type.toLowerCase() === 'input'"
           v-model="formData[item.prop]"
           :placeholder="item.placeholder"
-          :disabled="item.disabled"
+          :disabled="disabled || item.disabled"
           :clearable="item.clearable"
         ></el-input>
         <el-select
           :style="{'width':transformUnit(item.width)}"
           v-if="item.type.toLowerCase() === 'select'"
           :placeholder="item.placeholder"
-          :disabled="item.disabled"
+          :disabled="disabled || item.disabled"
           v-model="formData[item.prop]"
           :clearable="item.clearable || true"
           :multiple="item.multiple"
@@ -45,7 +45,7 @@
           v-model="formData[item.prop]"
           v-if="item.type.toLowerCase() === 'date'"
           :placeholder="item.placeholder"
-          :disabled="item.disabled"
+          :disabled="disabled || item.disabled"
           :type="item.dateConfig && item.dateConfig.type  || 'date'"
           :format="item.dateConfig && item.dateConfig.format || 'yyyy-MM-dd'"
           :unlink-panels="item.dateConfig && item.dateConfig['unlink-panels'] || false"
@@ -54,8 +54,9 @@
           :start-placeholder="item.dateConfig && item.dateConfig['start-placeholder'] || '开始时间'"
           :end-placeholder="item.dateConfig && item.dateConfig['end-placeholder'] || '结束时间'"
         ></el-date-picker>
+        <span :class="item.class" v-if="item.type.toLowerCase() === 'text'">{{formData[item.prop]}}</span>
       </el-form-item>
-      <el-form-item class="filter-button-group"></el-form-item>
+      <slot></slot>
     </el-form>
   </div>
 </template>
@@ -99,6 +100,10 @@ import { filterBlockUnit } from '../../utils/filter';
       default: () => {
         return [];
       }
+    },
+    'disabled': {
+      type: Boolean,
+      default: false
     }
   }
 })
