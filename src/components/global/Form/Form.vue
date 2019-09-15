@@ -24,6 +24,33 @@
           :disabled="disabled || item.disabled"
           :clearable="item.clearable"
         ></el-input>
+        <el-radio-group v-if="item.type.toLowerCase() === 'radio'" v-model="formData[item.prop]">
+          <el-radio
+            v-for="(option,index) in item.options"
+            :key="index"
+            :disabled="option.disabled"
+            :label="isObject(option)?option.value || option.label :index"
+          >{{isObject(option)?option.label:option}}</el-radio>
+        </el-radio-group>
+        <el-checkbox-group
+          :disabled="item.disabled"
+          v-if="item.type.toLowerCase() === 'checkbox' && item.options"
+          v-model="formData[item.prop]"
+        >
+          <el-checkbox
+            v-for="(option,index) in item.options"
+            :key="index"
+            :label="option.label"
+            :disabled="option.disabled"
+          >{{option.text}}</el-checkbox>
+        </el-checkbox-group>
+        <el-checkbox
+          :disabled="item.disabled"
+          v-if="item.type.toLowerCase() === 'checkbox' && !item.options"
+          v-model="formData[item.prop]"
+          :true-label="item.trueValue"
+          :false-label="item.falseValue"
+        >{{item.text}}</el-checkbox>
         <el-select
           :style="{'width':transformUnit(item.width)}"
           v-if="item.type.toLowerCase() === 'select'"
@@ -63,6 +90,7 @@
 <script lang='ts'>
 import { Component, Vue, Model } from 'vue-property-decorator';
 import { filterBlockUnit } from '../../utils/filter';
+import { isObject } from '../../utils/index';
 @Component({
   name: 'SeaForm',
   filters: {
@@ -123,6 +151,9 @@ export default class SeaForm extends Vue {
   public data!: object;
   public transformUnit(unit: any): string {
     return filterBlockUnit(unit);
+  }
+  public isObject(target: any) {
+    return isObject(target);
   }
 }
 </script>

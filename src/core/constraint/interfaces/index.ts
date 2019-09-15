@@ -1,20 +1,44 @@
 import { Form } from 'element-ui';
+import { AxiosBasicCredentials } from 'axios';
 
 type width = string | number;
 
-export interface FilterObject {
-  label: string;
-  type: string;
-  prop: string;
-  'label-width'?: width;
-  width?: width;
-  placeholder?: string;
-  options?: any[];
-  clearable?: boolean;
-  disabled?: boolean;
-  multiple?: boolean;
-  dateConfig?: DateConfig;
-  class?: string;
+export namespace SeaInfo {
+  export interface BaseFormComponent {
+    label: string;
+    type: string;
+    prop: string;
+    disabled?: boolean;
+    'label-width'?: width;
+    width?: width;
+  }
+
+  export interface InputComponent extends BaseFormComponent {
+    placeholder?: string;
+    clearable?: boolean;
+  }
+  export interface RadioComponent extends BaseFormComponent {
+    options?: any[];
+  }
+  export interface CheckboxComponet extends BaseFormComponent {
+    trueValue: number | string;
+    falseValue: number | string;
+    text?: string;
+    options?: any[];
+    min?: number;
+    max?: number;
+  }
+  export interface SelectComponent extends BaseFormComponent {
+    clearable?: boolean;
+    multiple?: boolean;
+    options?: any[];
+  }
+  export interface DateComponent extends BaseFormComponent {
+    dateConfig?: DateConfig;
+  }
+  export interface TextComponent extends BaseFormComponent {
+    class?: string;
+  }
 }
 
 export interface DateConfig {

@@ -16,7 +16,7 @@ export const subRoutes = [
     path: '/diary',
     name: 'diary',
     meta: {
-      title: '施工日志',
+      title: 'Table组件',
       icon: 'el-icon-notebook-1'
     },
     components: {

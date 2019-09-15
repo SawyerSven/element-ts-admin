@@ -11,12 +11,19 @@
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
-import { FilterObject } from '@/core/constraint';
+import { SeaInfo } from '@/core/constraint';
 @Component({
   name: 'Diary'
 })
 export default class Diary extends Vue {
-  private searchList: FilterObject[] = [
+  private searchList: Array<
+    | SeaInfo.InputComponent
+    | SeaInfo.RadioComponent
+    | SeaInfo.CheckboxComponet
+    | SeaInfo.SelectComponent
+    | SeaInfo.DateComponent
+    | SeaInfo.TextComponent
+  > = [
     {
       label: '时间',
       prop: 'daterange',

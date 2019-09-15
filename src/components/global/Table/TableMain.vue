@@ -2,7 +2,7 @@
   <div class="table">
     <div class="table-content">
       <!-- <el-card class="table-content-header"> -->
-        <slot name="control"></slot>
+      <slot name="control"></slot>
       <!-- </el-card> -->
       <el-card class="table-content-body">
         <el-table
