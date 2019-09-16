@@ -24,7 +24,11 @@
           :disabled="disabled || item.disabled"
           :clearable="item.clearable"
         ></el-input>
-        <el-radio-group v-if="item.type.toLowerCase() === 'radio'" v-model="formData[item.prop]">
+        <el-radio-group
+          :disabled="disabled || item.disabled"
+          v-if="item.type.toLowerCase() === 'radio'"
+          v-model="formData[item.prop]"
+        >
           <el-radio
             v-for="(option,index) in item.options"
             :key="index"
@@ -33,7 +37,7 @@
           >{{isObject(option)?option.label:option}}</el-radio>
         </el-radio-group>
         <el-checkbox-group
-          :disabled="item.disabled"
+          :disabled="item.disabled || disabled"
           v-if="item.type.toLowerCase() === 'checkbox' && item.options"
           v-model="formData[item.prop]"
         >
@@ -45,12 +49,20 @@
           >{{option.text}}</el-checkbox>
         </el-checkbox-group>
         <el-checkbox
-          :disabled="item.disabled"
+          :disabled="item.disabled || disabled"
           v-if="item.type.toLowerCase() === 'checkbox' && !item.options"
           v-model="formData[item.prop]"
           :true-label="item.trueValue"
           :false-label="item.falseValue"
         >{{item.text}}</el-checkbox>
+        <el-switch
+          v-if="item.type.toLowerCase()==='switch'"
+          :disabled="item.disabled || disabled"
+          v-model="formData[item.prop]"
+          :width="item.width || 40"
+          :active-value="item.activeValue || true"
+          :inactive-value="item.inactiveValue || false"
+        ></el-switch>
         <el-select
           :style="{'width':transformUnit(item.width)}"
           v-if="item.type.toLowerCase() === 'select'"

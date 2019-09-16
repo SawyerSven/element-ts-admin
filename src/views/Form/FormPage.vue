@@ -30,6 +30,7 @@ export default class FormPage extends Vue {
     | SeaInfo.SelectComponent
     | SeaInfo.DateComponent
     | SeaInfo.TextComponent
+    | SeaInfo.SwitchComponent
   > = [
     {
       label: '日期',
@@ -84,7 +85,7 @@ export default class FormPage extends Vue {
       options: [
         {
           label: 1,
-          disabled: true,
+          disabled: false,
           text: '测试1'
         },
         {
@@ -92,6 +93,13 @@ export default class FormPage extends Vue {
           text: '测试2'
         }
       ]
+    },
+    {
+      label: '是否开启switch',
+      prop: 'isOpenSwitch',
+      type: 'switch',
+      activeValue: true,
+      inactiveValue: false
     }
   ];
 }
@@ -101,6 +109,6 @@ export default class FormPage extends Vue {
   padding: 20px;
 }
 .text {
-  font-size: 80px;
+  font-size: 40px;
 }
 </style>

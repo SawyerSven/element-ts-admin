@@ -2,6 +2,7 @@ import { Form } from 'element-ui';
 import { AxiosBasicCredentials } from 'axios';
 
 type width = string | number;
+type SwitchValue = string | number | boolean;
 
 export namespace SeaInfo {
   export interface BaseFormComponent {
@@ -38,6 +39,13 @@ export namespace SeaInfo {
   }
   export interface TextComponent extends BaseFormComponent {
     class?: string;
+  }
+  export interface SwitchComponent extends BaseFormComponent {
+    width?: number;
+    activeText?: string;
+    inactiveText?: string;
+    activeValue: SwitchValue;
+    inactiveValue: SwitchValue;
   }
 }
 
