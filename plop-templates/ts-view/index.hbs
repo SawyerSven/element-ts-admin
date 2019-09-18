@@ -1,0 +1,18 @@
+{{#if template}}
+<template>
+    <div class="{{properCase name}}"></div>
+</template>
+{{/if}}
+{{#if script}}
+<script lang='ts'>
+    import { Component, Vue } from 'vue-property-decorator';
+    @Component({
+        name: '{{properCase name}}'
+    })
+    export default class extends Vue { }
+</script>
+{{/if}}
+{{#if style}}
+<style lang="{{lang}}">
+</style>
+{{/if}}
