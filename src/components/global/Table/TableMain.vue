@@ -56,8 +56,8 @@
             :page-size="tableObject.paginationOptions.pageSize || 10"
             layout="total, prev, pager, next"
             :total="tableObject.paginationOptions.total || 0"
-            @current-change="tableObject.paginationOptions.sizeChange || function(){}"
-            :current-page.sync="tableObject.paginationOptions.currentPage || 1"
+            @current-change="tableObject.paginationOptions.currentChange || function(){}"
+            :current-page.sync="tableObject.paginationOptions.currentPage"
           ></el-pagination>
         </el-card>
       </el-card>
