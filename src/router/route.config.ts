@@ -44,6 +44,17 @@ export const subRoutes = [
     components: {
       main: () => import('@/views/Form/FormPage.vue')
     }
+  },
+  {
+    path: '/sea-upload',
+    name: 'SeaUpload',
+    meta: {
+      title: '文件上传',
+      icon: 'el-icon-upload'
+    },
+    components: {
+      main: () => import('@/views/Upload/index.vue')
+    }
   }
 ];
 

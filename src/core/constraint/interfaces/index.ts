@@ -47,6 +47,14 @@ export namespace SeaInfo {
     activeValue: SwitchValue;
     inactiveValue: SwitchValue;
   }
+  export type FormComponents =
+    | DateComponent
+    | InputComponent
+    | RadioComponent
+    | CheckboxComponet
+    | SelectComponent
+    | TextComponent
+    | SwitchComponent;
 }
 
 export interface DateConfig {

@@ -23,15 +23,7 @@ export default class FormPage extends Vue {
     checkbox: []
   };
   public formDisabled = false;
-  public formObject: Array<
-    | SeaInfo.InputComponent
-    | SeaInfo.RadioComponent
-    | SeaInfo.CheckboxComponet
-    | SeaInfo.SelectComponent
-    | SeaInfo.DateComponent
-    | SeaInfo.TextComponent
-    | SeaInfo.SwitchComponent
-  > = [
+  public formObject: SeaInfo.FormComponents[] = [
     {
       label: '日期',
       type: 'date',
