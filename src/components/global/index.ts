@@ -13,8 +13,8 @@ function registerComponents(componentList: any) {
 const components = [
   // @plop global
   {
-    name:'SeaUpload',
-    component: ()=>import('@/components/global/Upload/index.vue')
+    name: 'SeaUpload',
+    component: () => import('@/components/global/Upload/index.vue')
   },
   {
     name: 'TableFilter',

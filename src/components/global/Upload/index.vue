@@ -66,10 +66,10 @@ export default class extends Vue {
   public fileList = [];
   public disabled = false;
   public handleRemove(file: any, fileList: any) {
-    console.log(file, fileList);
+    // console.log(file, fileList);
   }
   public handlePreview(file: any) {
-    console.log(file);
+    // console.log(file);
   }
   public handleExceed(files: any, fileList: any) {
     this.$message.warning(

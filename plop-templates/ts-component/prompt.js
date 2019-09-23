@@ -89,7 +89,7 @@ module.exports = {
         }
       }
     ];
-    console.log(actions);
+    // console.log(actions);
     return actions;
   }
 };

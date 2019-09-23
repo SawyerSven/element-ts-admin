@@ -13,7 +13,7 @@
 </template>
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
-import { SeaInfo } from '../../core/constraint';
+import { FormComponents } from '../../core/constraint';
 @Component({
   name: 'FormPage'
 })
@@ -23,7 +23,7 @@ export default class FormPage extends Vue {
     checkbox: []
   };
   public formDisabled = false;
-  public formObject: SeaInfo.FormComponents[] = [
+  public formObject: FormComponents[] = [
     {
       label: '日期',
       type: 'date',

@@ -81,8 +81,6 @@ describe('测试TableFilter组件', () => {
       expect(instance.html()).to.contains('el-input');
       expect(instance.html()).to.contains('el-button');
     });
-    it('测试初始化值并测试筛选值的改变', () => {
-      
-    });
+    it('测试初始化值并测试筛选值的改变', () => {});
   });
 });
