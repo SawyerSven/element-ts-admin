@@ -55,6 +55,17 @@ export const subRoutes = [
     components: {
       main: () => import('@/views/Upload/index.vue')
     }
+  },
+  {
+    path: '/sea-list',
+    name: 'SeaList',
+    meta: {
+      title: '数据列表',
+      icon: 'el-icon-s-order'
+    },
+    components: {
+      main: () => import('@/views/List/index.vue')
+    }
   }
 ];
 

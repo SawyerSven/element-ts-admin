@@ -1,5 +1,6 @@
 <template>
   <div class="Upload">
+    <p>本节功能并未完全实现</p>
     <SeaUpload :limit="10" action="#" type="img"></SeaUpload>
   </div>
 </template>

@@ -13,6 +13,10 @@ function registerComponents(componentList: any) {
 const components = [
   // @plop global
   {
+    name: 'SeaList',
+    component: () => import('@/components/global/List/index.vue')
+  },
+  {
     name: 'SeaUpload',
     component: () => import('@/components/global/Upload/index.vue')
   },
