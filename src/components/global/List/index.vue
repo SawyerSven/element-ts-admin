@@ -2,7 +2,7 @@
   <div class="list">
     <div class="list-item">
       <div v-if="type === 'selection'" class="list-item__checkbox">
-        <el-checkbox v-model="isSelect"></el-checkbox>
+        <el-checkbox @change="changeSelect" v-model="isSelect"></el-checkbox>
       </div>
       <div class="list-item__head">
         <slot name="head">
@@ -19,17 +19,22 @@
   </div>
 </template>
 <script lang='ts'>
+import Emitter from '../../utils/mixins/emitter';
 import {
   Component,
   Vue,
   Emit,
   Model,
   PropSync,
-  Inject
+  Inject,
+  Watch
 } from 'vue-property-decorator';
 @Component({
   name: 'List',
   props: {
+    id: {
+      type: [String, Number]
+    },
     content: {
       type: String,
       default: ''
@@ -46,10 +51,14 @@ import {
       type: String,
       default: 'normal'
     }
-  }
+  },
+  mixins: [Emitter]
 })
 export default class extends Vue {
-  @PropSync('isSelected', { type: Boolean }) public isSelect!: boolean;
+  public isSelect: boolean = false;
+  public changeSelect(e: boolean) {
+    this.dispatchListGroup('ListGroup', 'selfChange');
+  }
 }
 </script>
 <style lang="less">
