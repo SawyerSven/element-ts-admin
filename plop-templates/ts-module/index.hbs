@@ -1,0 +1,12 @@
+<template>
+  <div class="{{dashCase name}}"></div>
+</template>
+<script lang='ts'>
+  import { Component, Vue } from 'vue-property-decorator';
+  @Component({
+    name: '{{properCase name}}'
+  })
+  export default class {{ properCase name }} extends Vue { }
+</script>
+<style scoped lang="{{lang}}">
+</style>
