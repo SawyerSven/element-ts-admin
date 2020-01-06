@@ -3,6 +3,7 @@
     <el-card>
       <el-form class="table-filter-form" :inline="true" ref="filter">
         <el-form-item
+          style="margin-right:40px"
           class="table-filter-form-item"
           v-for="(item,index) in filterList"
           :key="index"
@@ -15,7 +16,20 @@
             :disabled="item.disabled"
             :clearable="item.clearable"
           ></el-input>
+          <el-radio-group
+            :disabled="item.disabled"
+            v-if="item.type.toLowerCase() === 'radio'"
+            v-model="formData[item.prop]"
+          >
+            <el-radio
+              v-for="(option,index) in item.options"
+              :key="index"
+              :disabled="option.disabled"
+              :label="isObject(option)?option.value :index"
+            >{{isObject(option)?option.label:option}}</el-radio>
+          </el-radio-group>
           <el-select
+            :style="{'width':item.width}"
             v-if="item.type.toLowerCase() === 'select'"
             :placeholder="item.placeholder"
             :disabled="item.disabled"
@@ -93,7 +107,7 @@ export default class TableFilter extends Vue {
 }
 </script>
 
-<style lang='less'>
+<style lang='less' scoped> 
 .table-filter-form {
   #flex(flex-start, center, row, wrap);
   .table-filter-form-item {

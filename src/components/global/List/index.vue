@@ -57,11 +57,11 @@ import {
 export default class extends Vue {
   public isSelect: boolean = false;
   public changeSelect(e: boolean) {
-    this.dispatchListGroup('ListGroup', 'selfChange');
+    (this as any).dispatchListGroup('ListGroup', 'selfChange');
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .list {
   width: 100%;
   min-width: 500px;

@@ -83,5 +83,5 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 </style>
